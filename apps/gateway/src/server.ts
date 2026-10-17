@@ -1,0 +1,2 @@
+import http from 'node:http';
+http.createServer(async(req,res)=>{try{const value=req.url==='/health'?{ok:true,service:'gateway'}:await (await fetch((process.env.REPORT_URL||'http://report:8091')+'/report')).json();res.setHeader('content-type','application/json');res.end(JSON.stringify({service:'typescript-gateway',report:value}))}catch(e){res.writeHead(502,{'content-type':'application/json'});res.end(JSON.stringify({error:String(e)}))}}).listen(Number(process.env.PORT||8090),'0.0.0.0');
