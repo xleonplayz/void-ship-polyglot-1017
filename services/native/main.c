@@ -1,2 +1,2 @@
 #include <stdio.h>
-int main(void){puts("{\"ok\":true,\"service\":\"c-native\"}");return 0;}
+int main(void){puts("{\"ok\":true,\"release\":2,\"service\":\"c-native\"}");return 0;}
